@@ -162,15 +162,15 @@
     <graphics type="spice">
       <listen type="none"/>
       <image compression="off"/>
-      <gl enable="yes" rendernode="/dev/dri/by-path/pci-0000:00:02.0-render"/>
+      <gl enable="no"/>
     </graphics>
     <sound model="ich9">
       <address type="pci" domain="0x0000" bus="0x00" slot="0x1b" function="0x0"/>
     </sound>
     <audio id="1" type="spice"/>
     <video>
-      <model type="virtio" heads="1" primary="yes">
-        <acceleration accel3d="yes"/>
+      <model type="virtio" heads="2" primary="yes">
+        <acceleration accel3d="no"/>
       </model>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
     </video>
