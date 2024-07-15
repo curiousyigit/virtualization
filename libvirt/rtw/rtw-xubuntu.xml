@@ -1,19 +1,15 @@
 <domain type="kvm">
-  <name>rtw</name>
-  <uuid>7bd82bd1-e968-46a9-a76b-2da4dcbc1d95</uuid>
-  <title>Reward The World</title>
+  <name>rtw-xubuntu</name>
+  <uuid>68af195f-6d2c-4b4f-8049-a1e4ca89f70e</uuid>
+  <title>Reward The World (Xubuntu)</title>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
-      <libosinfo:os id="http://fedoraproject.org/fedora/40"/>
+      <libosinfo:os id="http://ubuntu.com/ubuntu/22.04"/>
     </libosinfo:libosinfo>
   </metadata>
   <memory unit="KiB">33554432</memory>
-  <currentMemory unit="KiB">20971520</currentMemory>
-  <memoryBacking>
-    <source type="memfd"/>
-    <access mode="shared"/>
-  </memoryBacking>
-  <vcpu placement="static">8</vcpu>
+  <currentMemory unit="KiB">33554432</currentMemory>
+  <vcpu placement="static">10</vcpu>
   <os firmware="efi">
     <type arch="x86_64" machine="pc-q35-8.2">hvm</type>
     <firmware>
@@ -21,7 +17,7 @@
       <feature enabled="no" name="secure-boot"/>
     </firmware>
     <loader readonly="yes" type="pflash">/usr/share/edk2/ovmf/OVMF_CODE.fd</loader>
-    <nvram template="/usr/share/edk2/ovmf/OVMF_VARS.fd">/var/lib/libvirt/qemu/nvram/rtw_VARS.fd</nvram>
+    <nvram template="/usr/share/edk2/ovmf/OVMF_VARS.fd">/var/lib/libvirt/qemu/nvram/rtw-xubuntu_VARS.fd</nvram>
     <boot dev="hd"/>
   </os>
   <features>
@@ -46,7 +42,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/mnt/shared/virtual-machines/rtw/rtw.qcow2"/>
+      <source file="/mnt/shared/virtual-machines/rtw/rtw-xubuntu.qcow2"/>
       <target dev="vda" bus="virtio"/>
       <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </disk>
@@ -136,14 +132,8 @@
     <controller type="virtio-serial" index="0">
       <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
     </controller>
-    <filesystem type="mount" accessmode="passthrough">
-      <driver type="virtiofs"/>
-      <source dir="/mnt/shared/virtual-machines/rtw/shared"/>
-      <target dir="shared"/>
-      <address type="pci" domain="0x0000" bus="0x07" slot="0x00" function="0x0"/>
-    </filesystem>
     <interface type="network">
-      <mac address="52:54:00:d8:12:82"/>
+      <mac address="52:54:00:2f:f4:09"/>
       <source network="default"/>
       <model type="virtio"/>
       <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
@@ -172,17 +162,14 @@
     <graphics type="spice">
       <listen type="none"/>
       <image compression="off"/>
-      <gl enable="no"/>
-    </graphics>
-    <graphics type="egl-headless">
-      <gl rendernode="/dev/dri/renderD129"/>
+      <gl enable="yes" rendernode="/dev/dri/by-path/pci-0000:00:02.0-render"/>
     </graphics>
     <sound model="ich9">
       <address type="pci" domain="0x0000" bus="0x00" slot="0x1b" function="0x0"/>
     </sound>
     <audio id="1" type="spice"/>
     <video>
-      <model type="virtio" heads="2" primary="yes">
+      <model type="virtio" heads="1" primary="yes">
         <acceleration accel3d="yes"/>
       </model>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
