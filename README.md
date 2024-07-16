@@ -15,7 +15,11 @@ This repository hosts my virtualization setups and configurations. You are welco
     - glmark2 score with dGPU: 4575 with error (lower than iGPU for some reason)
 
 ## Guests
-### rtw-fedora
+### rtw-fedora-workstation
+- Supports VirGL with both Intel UHD & NVIDIA GPU
+- Supports mulitple screens with `virt-viewer`
+
+### rtw-fedora-kde
 - Supports VirGL with both Intel UHD & NVIDIA GPU
 - Supports mulitple screens with `virt-viewer`
 - KWin keeps crashing and is not stable
@@ -84,7 +88,7 @@ OpenGL within spice (Intel iGPU) works great with no vertical flickering, howeve
   <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
 </video>
 ```
-- System 1 / rtw-fedora
+- System 1 / rtw-fedora-kde
   - glmark2 score: 226
   - No desktop vertical flickering
   - No Youtube video vertical flickering
@@ -126,7 +130,7 @@ OpenGL oustide of Spice (Intel iGPU) works okay with some vertical flickering bu
   <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
 </video>
 ```
-- System 1 / rtw-fedora
+- System 1 / rtw-fedora-kde
   - glmark2 score: 206
   - Desktop vertical flickering
   - No Youtube video vertical flickering
@@ -150,7 +154,7 @@ OpenGL oustide of Spice (NVIDIA dGPU) works okay with some vertical flickering b
   <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
 </video>
 ```
-- System 1 / rtw-fedora
+- System 1 / rtw-fedora-kde
   - glmark2 score: 3759
   - Desktop vertical flickering
   - No Youtube video vertical flickering

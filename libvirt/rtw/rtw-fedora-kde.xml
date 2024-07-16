@@ -1,7 +1,7 @@
 <domain type="kvm">
-  <name>rtw-fedora</name>
+  <name>rtw-fedora-kde</name>
   <uuid>7bd82bd1-e968-46a9-a76b-2da4dcbc1d95</uuid>
-  <title>Reward The World (Fedora)</title>
+  <title>Reward The World (Fedora KDE)</title>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://fedoraproject.org/fedora/40"/>
@@ -21,7 +21,7 @@
       <feature enabled="no" name="secure-boot"/>
     </firmware>
     <loader readonly="yes" type="pflash">/usr/share/edk2/ovmf/OVMF_CODE.fd</loader>
-    <nvram template="/usr/share/edk2/ovmf/OVMF_VARS.fd">/var/lib/libvirt/qemu/nvram/rtw-fedora_VARS.fd</nvram>
+    <nvram template="/usr/share/edk2/ovmf/OVMF_VARS.fd">/var/lib/libvirt/qemu/nvram/rtw-fedora-kde_VARS.fd</nvram>
     <boot dev="hd"/>
   </os>
   <features>
